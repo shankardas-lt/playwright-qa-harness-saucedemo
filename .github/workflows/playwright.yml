@@ -41,6 +41,7 @@ jobs:
         run: npm run test:smoke
         env:
           BASE_URL: ${{ secrets.BASE_URL }}
+          TEST_ID_ATTRIBUTE: data-test
           SAUCE_STANDARD_USER: ${{ secrets.SAUCE_STANDARD_USER }}
           SAUCE_LOCKED_USER: ${{ secrets.SAUCE_LOCKED_USER }}
           SAUCE_PASSWORD: ${{ secrets.SAUCE_PASSWORD }}
@@ -91,6 +92,7 @@ jobs:
         run: npm test
         env:
           BASE_URL: ${{ secrets.BASE_URL }}
+          TEST_ID_ATTRIBUTE: data-test
           SAUCE_STANDARD_USER: ${{ secrets.SAUCE_STANDARD_USER }}
           SAUCE_LOCKED_USER: ${{ secrets.SAUCE_LOCKED_USER }}
           SAUCE_PASSWORD: ${{ secrets.SAUCE_PASSWORD }}
