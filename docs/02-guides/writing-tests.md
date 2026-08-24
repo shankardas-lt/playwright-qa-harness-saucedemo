@@ -2,6 +2,12 @@
 
 This guide covers two complementary approaches for authoring Playwright tests in this framework. Choose based on what you are building.
 
+## Implemented modules
+
+| Module | Helper | Config | Tests |
+|---|---|---|---|
+| `auth` (saucedemo login) | `playwright/support/helpers/auth/login.helpers.ts` | `playwright/configs/ui/auth/login.ui.ts` | `playwright/tests/auth/login.spec.ts` |
+
 ---
 
 ## Which approach should I use?
