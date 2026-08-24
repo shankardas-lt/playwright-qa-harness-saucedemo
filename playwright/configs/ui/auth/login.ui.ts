@@ -4,4 +4,9 @@ export const LOGIN_UI = {
   PASSWORD_INPUT: "password",
   LOGIN_BUTTON: "login-button",
   ERROR_MESSAGE: "error",
+  ROLES: {
+    USERNAME_LABEL: "Username",
+    PASSWORD_LABEL: "Password",
+    LOGIN_BUTTON_NAME: "Login",
+  },
 } as const;

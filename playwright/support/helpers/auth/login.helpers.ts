@@ -10,15 +10,24 @@ export class LoginHelpers {
   }
 
   async fillUsername(username: string): Promise<void> {
-    await this.page.getByTestId(LOGIN_UI.USERNAME_INPUT).fill(username);
+    await this.page
+      .getByLabel(LOGIN_UI.ROLES.USERNAME_LABEL)
+      .or(this.page.getByTestId(LOGIN_UI.USERNAME_INPUT))
+      .fill(username);
   }
 
   async fillPassword(password: string): Promise<void> {
-    await this.page.getByTestId(LOGIN_UI.PASSWORD_INPUT).fill(password);
+    await this.page
+      .getByLabel(LOGIN_UI.ROLES.PASSWORD_LABEL)
+      .or(this.page.getByTestId(LOGIN_UI.PASSWORD_INPUT))
+      .fill(password);
   }
 
   async submit(): Promise<void> {
-    await this.page.getByTestId(LOGIN_UI.LOGIN_BUTTON).click();
+    await this.page
+      .getByRole("button", { name: LOGIN_UI.ROLES.LOGIN_BUTTON_NAME })
+      .or(this.page.getByTestId(LOGIN_UI.LOGIN_BUTTON))
+      .click();
   }
 
   async login(username: string, password: string): Promise<void> {
