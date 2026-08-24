@@ -93,6 +93,15 @@ NEVER  →  a test with no requirement tag, more than one, or an unknown id    e
 
 <!-- HARNESS:RULES:END -->
 
+## Route registry
+
+| Constant | Path | Description |
+|---|---|---|
+| `ROUTES.LOGIN` | `/` | saucedemo login page |
+| `ROUTES.INVENTORY` | `/inventory.html` | Post-login inventory page |
+
+Source: `playwright/configs/app/routes.ts`
+
 ## Execution and evidence
 
 ```bash

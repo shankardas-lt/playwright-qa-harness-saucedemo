@@ -1,4 +1,104 @@
 {
   "version": 1,
-  "requirements": []
+  "requirements": [
+    {
+      "id": "REQ-LOGIN-001",
+      "module": "auth",
+      "title": "Valid credentials redirect to inventory page",
+      "description": "When a user submits a valid username and password the application redirects them to the inventory page.",
+      "status": "active",
+      "type": "SMOKE",
+      "priority": "P0",
+      "tier": "smoke",
+      "source": "docs/application-intelligence/auth/login.md",
+      "expectedOutcome": "User is redirected to /inventory.html after submitting valid credentials.",
+      "preconditions": [
+        "Application is reachable at BASE_URL",
+        "SAUCE_STANDARD_USER and SAUCE_PASSWORD environment variables are set"
+      ],
+      "acceptanceCriteria": [
+        "Submitting valid username and password navigates to /inventory.html",
+        "No error message is displayed after successful login"
+      ]
+    },
+    {
+      "id": "REQ-LOGIN-002",
+      "module": "auth",
+      "title": "Invalid username shows authentication error",
+      "description": "When a user submits an unrecognised username an inline error message is displayed and the user remains on the login page.",
+      "status": "active",
+      "type": "REGRESSION",
+      "priority": "P1",
+      "tier": "e2e",
+      "source": "docs/application-intelligence/auth/login.md",
+      "expectedOutcome": "An inline error message is visible and the login page remains active.",
+      "preconditions": [
+        "Application is reachable at BASE_URL",
+        "SAUCE_PASSWORD environment variable is set"
+      ],
+      "acceptanceCriteria": [
+        "Submitting an unrecognised username shows the error 'Username and password do not match any user in this service'",
+        "The user remains on the login page after the failed attempt"
+      ]
+    },
+    {
+      "id": "REQ-LOGIN-003",
+      "module": "auth",
+      "title": "Invalid password shows authentication error",
+      "description": "When a user submits a valid username with an incorrect password an inline error message is displayed and the user remains on the login page.",
+      "status": "active",
+      "type": "REGRESSION",
+      "priority": "P1",
+      "tier": "e2e",
+      "source": "docs/application-intelligence/auth/login.md",
+      "expectedOutcome": "An inline error message is visible and the login page remains active.",
+      "preconditions": [
+        "Application is reachable at BASE_URL",
+        "SAUCE_STANDARD_USER environment variable is set"
+      ],
+      "acceptanceCriteria": [
+        "Submitting a valid username with a wrong password shows the error 'Username and password do not match any user in this service'",
+        "The user remains on the login page after the failed attempt"
+      ]
+    },
+    {
+      "id": "REQ-LOGIN-004",
+      "module": "auth",
+      "title": "Empty credentials show required-field validation error",
+      "description": "When a user submits the login form with no fields filled in a validation error is displayed indicating the username is required.",
+      "status": "active",
+      "type": "REGRESSION",
+      "priority": "P1",
+      "tier": "e2e",
+      "source": "docs/application-intelligence/auth/login.md",
+      "expectedOutcome": "A required-field validation error is visible and the login page remains active.",
+      "preconditions": [
+        "Application is reachable at BASE_URL"
+      ],
+      "acceptanceCriteria": [
+        "Submitting the form with empty fields shows the error 'Username is required'",
+        "The user remains on the login page after the failed attempt"
+      ]
+    },
+    {
+      "id": "REQ-LOGIN-005",
+      "module": "auth",
+      "title": "Locked-out user sees account-locked error",
+      "description": "When a user whose account is locked submits valid credentials an account-locked error message is displayed and the user remains on the login page.",
+      "status": "active",
+      "type": "REGRESSION",
+      "priority": "P1",
+      "tier": "e2e",
+      "source": "docs/application-intelligence/auth/login.md",
+      "expectedOutcome": "An account-locked error message is visible and the login page remains active.",
+      "preconditions": [
+        "Application is reachable at BASE_URL",
+        "SAUCE_LOCKED_USER and SAUCE_PASSWORD environment variables are set"
+      ],
+      "acceptanceCriteria": [
+        "Submitting credentials for a locked account shows the error 'Sorry, this user has been locked out'",
+        "The user remains on the login page after the failed attempt"
+      ]
+    }
+  ]
 }

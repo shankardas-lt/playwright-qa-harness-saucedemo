@@ -41,6 +41,10 @@ jobs:
         run: npm run test:smoke
         env:
           BASE_URL: ${{ secrets.BASE_URL }}
+          TEST_ID_ATTRIBUTE: data-test
+          SAUCE_STANDARD_USER: ${{ secrets.SAUCE_STANDARD_USER }}
+          SAUCE_LOCKED_USER: ${{ secrets.SAUCE_LOCKED_USER }}
+          SAUCE_PASSWORD: ${{ secrets.SAUCE_PASSWORD }}
       # Feeds M2 (first-pass CI rate). Only attempt 1 counts, so a re-run does not launder a
       # failure into a pass. Runs before evidence:build so M2 includes this run.
       #
@@ -88,6 +92,10 @@ jobs:
         run: npm test
         env:
           BASE_URL: ${{ secrets.BASE_URL }}
+          TEST_ID_ATTRIBUTE: data-test
+          SAUCE_STANDARD_USER: ${{ secrets.SAUCE_STANDARD_USER }}
+          SAUCE_LOCKED_USER: ${{ secrets.SAUCE_LOCKED_USER }}
+          SAUCE_PASSWORD: ${{ secrets.SAUCE_PASSWORD }}
       - name: Build machine evidence
         if: always()
         run: npm run evidence:build
