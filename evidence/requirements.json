@@ -1,4 +1,50 @@
 {
   "version": 1,
-  "requirements": []
+  "requirements": [
+    {
+      "id": "REQ-LOGIN-001",
+      "title": "Valid credentials redirect to inventory page",
+      "description": "When a user submits a valid username and password the application redirects them to the inventory page.",
+      "status": "active",
+      "type": "smoke",
+      "priority": "critical",
+      "tier": "tier-1"
+    },
+    {
+      "id": "REQ-LOGIN-002",
+      "title": "Invalid username shows authentication error",
+      "description": "When a user submits an unrecognised username an inline error message is displayed and the user remains on the login page.",
+      "status": "active",
+      "type": "e2e",
+      "priority": "high",
+      "tier": "tier-1"
+    },
+    {
+      "id": "REQ-LOGIN-003",
+      "title": "Invalid password shows authentication error",
+      "description": "When a user submits a valid username with an incorrect password an inline error message is displayed and the user remains on the login page.",
+      "status": "active",
+      "type": "e2e",
+      "priority": "high",
+      "tier": "tier-1"
+    },
+    {
+      "id": "REQ-LOGIN-004",
+      "title": "Empty credentials show required-field validation error",
+      "description": "When a user submits the login form with no fields filled in a validation error is displayed indicating the username is required.",
+      "status": "active",
+      "type": "e2e",
+      "priority": "high",
+      "tier": "tier-1"
+    },
+    {
+      "id": "REQ-LOGIN-005",
+      "title": "Locked-out user sees account-locked error",
+      "description": "When a user whose account is locked submits valid credentials an account-locked error message is displayed and the user remains on the login page.",
+      "status": "active",
+      "type": "e2e",
+      "priority": "high",
+      "tier": "tier-1"
+    }
+  ]
 }

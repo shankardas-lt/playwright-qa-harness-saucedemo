@@ -3,12 +3,14 @@ import { ApiHelpers } from "../support/helpers/common/api.helpers";
 import { HarHelpers } from "../support/helpers/common/har.helpers";
 import { NavigationHelpers } from "../support/helpers/common/navigation.helpers";
 import { UiHelpers } from "../support/helpers/common/ui.helpers";
+import { LoginHelpers } from "../support/helpers/auth/login.helpers";
 
 type CustomFixtures = {
   api: ApiHelpers;
   har: HarHelpers;
   nav: NavigationHelpers;
   ui: UiHelpers;
+  login: LoginHelpers;
   evidence: void;
 };
 
@@ -70,6 +72,9 @@ export const test = base.extend<CustomFixtures>({
   },
   ui: async ({ page }, use) => {
     await use(new UiHelpers(page));
+  },
+  login: async ({ page }, use) => {
+    await use(new LoginHelpers(page));
   },
 });
 
